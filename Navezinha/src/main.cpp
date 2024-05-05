@@ -1,20 +1,16 @@
 #include <iostream>
+#include <memory>
 #include <SFML/Graphics.hpp>
+
+
+#include "framework/Application.h"
 
 using namespace std;
 
 int main()
 {
-	sf::RenderWindow renderWindow(sf::VideoMode(200, 200), "Meu Joguinho");
-	while (renderWindow.isOpen()) {
-		sf::Event windowEvent;
-		while (renderWindow.pollEvent(windowEvent))
-		{
-			if (windowEvent.type == sf::Event::EventType::Closed)
-			{
-				renderWindow.close();
-			}
-		}
-	}
+	ly::Application* app = new ly::Application();
+	app->Run();
+
 	return 0;
 }
