@@ -9,8 +9,9 @@ using namespace std;
 
 int main()
 {
-	ly::Application* app = new ly::Application();
+	//Allocando memória no heap.
+	unique_ptr<ly::Application> app = make_unique<ly::Application>();
 	app->Run();
-
+	 
 	return 0;
 }
