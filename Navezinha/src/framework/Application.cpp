@@ -25,7 +25,9 @@ namespace ly {
 				}
 			}
 
-			accumulatedTime += mTickClock.restart().asSeconds();
+			float frameDeltaTime = mTickClock.restart().asSeconds();
+
+			accumulatedTime += frameDeltaTime;
 			while (accumulatedTime < targetDeltaTime) 
 			{
 				accumulatedTime -= targetDeltaTime;
@@ -37,7 +39,7 @@ namespace ly {
 
 	void Application::Tick(float deltaTime) 
 	{
-		std::cout << "contagem de framerate: " << 1.f / deltaTime << std::endl;
+		
 	}
 	void Application::Render()
 	{
