@@ -24,6 +24,8 @@ FetchContent_MakeAvailable(${SFML_LIB_NAME})
 
 #cria uma variável.
 
+set(NAVEZINHA_ENGINE_TARGET_NAME NavezinhaEngine)
 set(NAVEZINHA_GAME_TARGET_NAME NavezinhaGame)
 
-add_subdirectory(Navezinha)
+add_subdirectory(NavezinhaEngine)
+add_subdirectory(NavezinhaGame)
