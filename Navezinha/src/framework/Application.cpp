@@ -15,7 +15,8 @@ namespace ly {
 		mTickClock.restart();
 		float accumulatedTime = 0.f;
 		float targetDeltaTime = 1.f / mTargetFrameRate;
-		while (mWindow.isOpen()) {
+		while (mWindow.isOpen())
+		{
 			sf::Event windowEvent;
 			while (mWindow.pollEvent(windowEvent))
 			{
@@ -28,7 +29,7 @@ namespace ly {
 			float frameDeltaTime = mTickClock.restart().asSeconds();
 
 			accumulatedTime += frameDeltaTime;
-			while (accumulatedTime < targetDeltaTime) 
+			while (accumulatedTime > targetDeltaTime) 
 			{
 				accumulatedTime -= targetDeltaTime;
 				Tick(targetDeltaTime);
@@ -43,6 +44,9 @@ namespace ly {
 	}
 	void Application::Render()
 	{
+
+		mWindow.clear();
+		
 
 
 	}
