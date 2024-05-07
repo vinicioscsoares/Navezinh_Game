@@ -32,22 +32,48 @@ namespace ly {
 			while (accumulatedTime > targetDeltaTime) 
 			{
 				accumulatedTime -= targetDeltaTime;
-				Tick(targetDeltaTime);
-				Render();
+				TickInternal(targetDeltaTime);
+				RenderInternal();
 			}
 		}
 	}
 
-	void Application::Tick(float deltaTime) 
+	void Application::TickInternal(float deltaTime) 
 	{
+
+		Tick(deltaTime);
 		
 	}
-	void Application::Render()
+	void Application::RenderInternal()
 	{
 
 		mWindow.clear();
 		
+		Render();
 
+		mWindow.display();
+		
+
+
+	}
+
+	void Application::Render()
+	{
+
+		sf::RectangleShape rect{ sf::Vector2f(200,200) };
+		rect.setFillColor(sf::Color::Blue);
+		rect.setPosition(mWindow.getSize().x / 2.f, mWindow.getSize().y / 2.f);
+		rect.setOrigin(100,100);
+		
+
+		
+		mWindow.draw(rect);
+
+	}
+
+
+	void Application::Tick(float deltaTime)
+	{
 
 	}
 }
