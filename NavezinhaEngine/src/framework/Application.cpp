@@ -1,6 +1,6 @@
-#include "framework/Application.h"
-#include <iostream>
 
+#include "framework/Application.h"
+#include "framework/Core.h"
 namespace ly {
 	Application::Application()
 		: mWindow{ sf::VideoMode(800, 940), "Navezinha" },
@@ -35,6 +35,8 @@ namespace ly {
 				TickInternal(targetDeltaTime);
 				RenderInternal();
 			}
+			
+			LOG("Taxa de Framerates: %f", 1.f / frameDeltaTime);
 		}
 	}
 
