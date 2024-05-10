@@ -1,11 +1,14 @@
 
 #include "framework/Application.h"
 #include "framework/Core.h"
+#include "framework/World.h"
+
 namespace ly {
 	Application::Application()
-		: mWindow{ sf::VideoMode(800, 940), "Navezinha" },
+		: mWindow{ sf::VideoMode(400, 600), "Navezinha" },
 		mTargetFrameRate{60.f},
-		mTickClock{}
+		mTickClock{},
+		currentWorld(nullptr)
 	{
 
 	}
@@ -36,14 +39,17 @@ namespace ly {
 				RenderInternal();
 			}
 			
-			LOG("Taxa de Framerates: %f", 1.f / frameDeltaTime);
 		}
 	}
 
 	void Application::TickInternal(float deltaTime) 
 	{
-
 		Tick(deltaTime);
+		if (currentWorld)
+		{
+			currentWorld->BeginPlayInternal();
+			currentWorld->TickInternal(deltaTime);
+		}
 		
 	}
 	void Application::RenderInternal()

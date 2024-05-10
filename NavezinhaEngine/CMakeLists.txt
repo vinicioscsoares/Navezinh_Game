@@ -2,6 +2,9 @@ add_library(${NAVEZINHA_ENGINE_TARGET_NAME} STATIC
 	
 	${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Application.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Application.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/include/framework/World.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/framework/World.cpp
 	
 	
 	${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Core.h
